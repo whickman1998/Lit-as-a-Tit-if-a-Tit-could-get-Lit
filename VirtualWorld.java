@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import PathingMain.GridValues;
 import processing.core.*;
 
 public final class VirtualWorld
@@ -114,6 +116,22 @@ public final class VirtualWorld
          view.shiftView(dx, dy);
       }
    }
+   
+   public void mousePressed()
+   {
+      Point pressed = new Point(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
+      for (Entity entity : world.getEntities())
+      {
+          if (entity.getPosition().equals(pressed))
+          {
+              System.out.println("Entity");
+              return;
+          }
+      }
+      
+   }
+   
+   
 
    public Background createDefaultBackground(ImageStore imageStore)
    {
