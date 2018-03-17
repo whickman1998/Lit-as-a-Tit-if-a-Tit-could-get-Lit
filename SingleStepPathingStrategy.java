@@ -22,8 +22,8 @@ class SingleStepPathingStrategy
          .filter(pt ->
             !pt.equals(start)
             && !pt.equals(end)
-            && Math.abs(end.x - pt.x) <= Math.abs(end.x - start.x)
-            && Math.abs(end.y - pt.y) <= Math.abs(end.y - start.y))
+            && Math.abs(end.getX() - pt.getX()) <= Math.abs(end.getX() - start.getX())
+            && Math.abs(end.getY() - pt.getY()) <= Math.abs(end.getY() - start.getY()))
          .limit(1)
          .collect(Collectors.toList());
    }
