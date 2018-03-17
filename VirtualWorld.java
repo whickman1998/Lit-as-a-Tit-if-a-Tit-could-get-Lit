@@ -1,8 +1,12 @@
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
-import PathingMain.GridValues;
 import processing.core.*;
 
 public final class VirtualWorld
@@ -120,6 +124,13 @@ public final class VirtualWorld
    public void mousePressed()
    {
       Point pressed = new Point(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
+      List<Point> neighbors = PathingStrategy.CARDINAL_NEIGHBORS.apply(pressed).collect(Collectors.toList());
+      List<Point> neighbors2 = new LinkedList<Point>();
+      for(Point p:neighbors) {
+    	  neighbors2.addAll(PathingStrategy.CARDINAL_NEIGHBORS.apply(p).collect(Collectors.toList()));
+      }
+      
+      //Check for entity at point
       for (Entity entity : world.getEntities())
       {
           if (entity.getPosition().equals(pressed))
@@ -127,6 +138,22 @@ public final class VirtualWorld
               System.out.println("Entity");
               return;
           }
+          
+      }
+      
+      for(Point p : neighbors) {
+    	  if(!world.isOccupied(p)){
+    		  //world.addEntity(new Soldier());
+    	  }
+      }
+      
+      
+      Random rand = new Random();
+      for (Point p : neighbors2)
+      {
+          int dist = Point.distanceSquared(p,pressed);
+          if (dist < rand.nextInt(6) + 1)
+             world.setBackground(p, new Background("background_village",imageStore.getImageList("house" + rand.nextInt(1)+1)));
       }
       
    }
