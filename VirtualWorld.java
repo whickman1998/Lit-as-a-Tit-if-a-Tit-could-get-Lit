@@ -125,10 +125,11 @@ public final class VirtualWorld
    {
       Point pressed = new Point(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
       List<Point> neighbors = PathingStrategy.CARDINAL_NEIGHBORS.apply(pressed).collect(Collectors.toList());
-      List<Point> neighbors2 = new LinkedList<Point>();
+      List<Point> neighbors2 = neighbors;
       for(Point p:neighbors) {
     	  neighbors2.addAll(PathingStrategy.CARDINAL_NEIGHBORS.apply(p).collect(Collectors.toList()));
       }
+      
       
       //Check for entity at point
       for (Entity entity : world.getEntities())
@@ -143,7 +144,9 @@ public final class VirtualWorld
       
       for(Point p : neighbors) {
     	  if(!world.isOccupied(p)){
-    		  Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 0);
+    		  Soldier soldier = Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 0);
+    		  world.addEntity(soldier);
+    		  soldier.scheduleActions(scheduler, world, imageStore);
     	  }
       }
       
