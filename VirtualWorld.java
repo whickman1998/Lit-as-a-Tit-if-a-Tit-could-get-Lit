@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
@@ -125,11 +126,11 @@ public final class VirtualWorld
    {
       Point pressed = new Point(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
       List<Point> neighbors = PathingStrategy.CARDINAL_NEIGHBORS.apply(pressed).collect(Collectors.toList());
-      List<Point> neighbors2 = neighbors;
+      List<Point> neighbors2 = new LinkedList<Point>();
       for(Point p:neighbors) {
-    	  neighbors2.addAll(PathingStrategy.CARDINAL_NEIGHBORS.apply(p).collect(Collectors.toList()));
+    	  neighbors2.addAll(PathingStrategy.CARDINAL_NEIGHBORS.apply(p).filter(s->!neighbors2.contains(s)).collect(Collectors.toList()));
       }
-      
+      neighbors2.addAll(neighbors);
       
       //Check for entity at point
       for (Entity entity : world.getEntities())
@@ -138,15 +139,17 @@ public final class VirtualWorld
           {
               System.out.println("Entity");
               return;
-          }
-          
+          }          
       }
+      Optional<Entity> nearest = world.findNearest(pressed, Blacksmith.class);
+      ((Blacksmith)nearest.get()).transform(world, scheduler, imageStore);
       
       for(Point p : neighbors) {
     	  if(!world.isOccupied(p)){
     		  Soldier soldier = Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 0);
-    		  world.addEntity(soldier);
+    		  world.tryAddEntity(soldier);
     		  soldier.scheduleActions(scheduler, world, imageStore);
+    		  soldier.executeActivity(world, imageStore, scheduler);
     	  }
       }
       
@@ -156,7 +159,7 @@ public final class VirtualWorld
       {
           int dist = Point.distanceSquared(p,pressed);
           if (dist < rand.nextInt(6) + 1)
-             world.setBackground(p, new Background("background_village",imageStore.getImageList("house" + rand.nextInt(1)+1)));
+             world.setBackground(p, new Background("background_village",imageStore.getImageList("house")));
       }
       
    }

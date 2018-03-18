@@ -12,6 +12,7 @@ blob images/blob10.bmp 255 255 255 0
 blob images/blob11.bmp 255 255 255 0
 blob images/blob12.bmp 255 255 255 0
 grass images/grass.bmp
+house images/house1.bmp
 miner images/miner1.bmp 252 252 252 0
 miner images/miner2.bmp 252 252 252 0
 miner images/miner3.bmp 252 252 252 0
@@ -19,6 +20,7 @@ miner images/miner4.bmp 252 252 252 0
 miner images/miner5.bmp 252 252 252 0
 obstacle images/obstacle.bmp
 ore images/ore.bmp 201 26 26 0
+pblacksmith images/pblackmith.bmp
 quake images/quake1.bmp 255 255 255 0
 quake images/quake2.bmp 255 255 255 0
 quake images/quake3.bmp 255 255 255 0
@@ -26,5 +28,7 @@ quake images/quake4.bmp 255 255 255 0
 quake images/quake5.bmp 255 255 255 0
 quake images/quake6.bmp 255 255 255 0
 rocks images/rock.bmp
+soldier images/soldier.bmp 255 255 255 0
 vein images/vein.bmp
+weapon images/weapon.bmp 255 255 255 0
 background_default images/none.bmp
