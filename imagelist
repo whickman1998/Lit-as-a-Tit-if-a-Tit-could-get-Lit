@@ -20,7 +20,7 @@ miner images/miner4.bmp 252 252 252 0
 miner images/miner5.bmp 252 252 252 0
 obstacle images/obstacle.bmp
 ore images/ore.bmp 201 26 26 0
-pblacksmith images/pblackmith.bmp
+pblacksmith images/pblacksmith.bmp
 quake images/quake1.bmp 255 255 255 0
 quake images/quake2.bmp 255 255 255 0
 quake images/quake3.bmp 255 255 255 0
