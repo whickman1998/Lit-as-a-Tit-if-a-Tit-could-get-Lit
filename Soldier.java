@@ -46,6 +46,7 @@ public class Soldier extends Mover {
 	                world.addEntity(quake);
 	                nextPeriod += super.getActionPeriod();
 	                quake.scheduleActions(scheduler, world, imageStore);
+	                weapons = false; 
 	            }
 	        }
 
