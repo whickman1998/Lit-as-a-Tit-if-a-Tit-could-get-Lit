@@ -108,6 +108,12 @@ public class Factory {
     {
         return new Weapon(position, images, actionPeriod);
     }
+    
+    public static Soldier createSoldier(Point position,
+                    List<PImage> images, int actionPeriod, int animationPeriod) 
+    {
+    		return new Soldier(position, images, actionPeriod, animationPeriod); 
+    }
 
     public static Quake createQuake(Point position, List<PImage> images)
     {
