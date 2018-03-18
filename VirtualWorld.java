@@ -124,7 +124,7 @@ public final class VirtualWorld
    
    public void mousePressed()
    {
-      Point pressed = new Point(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
+      Point pressed = view.mouseToPoint(mouseX/TILE_WIDTH, mouseY/TILE_HEIGHT);
       List<Point> neighbors = PathingStrategy.CARDINAL_NEIGHBORS.apply(pressed).collect(Collectors.toList());
       List<Point> neighbors2 = new LinkedList<Point>();
       for(Point p:neighbors) {

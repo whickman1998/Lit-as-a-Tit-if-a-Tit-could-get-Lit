@@ -20,7 +20,7 @@ miner images/miner4.bmp 252 252 252 0
 miner images/miner5.bmp 252 252 252 0
 obstacle images/obstacle.bmp
 ore images/ore.bmp 201 26 26 0
-pblacksmith images/pblackmith.bmp
+pblacksmith images/pblacksmith.bmp
 quake images/quake1.bmp 255 255 255 0
 quake images/quake2.bmp 255 255 255 0
 quake images/quake3.bmp 255 255 255 0
@@ -28,7 +28,8 @@ quake images/quake4.bmp 255 255 255 0
 quake images/quake5.bmp 255 255 255 0
 quake images/quake6.bmp 255 255 255 0
 rocks images/rock.bmp
-soldier images/soldier.bmp 255 255 255 0
+soldier images/soldier1.bmp 255 255 255 0
+soldier images/soldier2.bmp 255 255 255 0
 vein images/vein.bmp
 weapon images/weapon.bmp 255 255 255 0
 background_default images/none.bmp
