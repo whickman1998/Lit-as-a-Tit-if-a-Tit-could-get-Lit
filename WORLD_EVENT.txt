@@ -1,0 +1,16 @@
+1) 	Event is triggered on mouse click.
+
+2) 	When the event is triggered, a village with a soldier spawns, 
+	the nearest blacksmith starts producing swords, and the soldier
+	goes to retrieve a weapon before killing ore blobs.
+
+3)	The nearest blacksmith (affected entity) changes color and begins producing swords
+	Miners will no longer drop off ore at this blacksmith.
+	
+4)	The new entities (soldiers) go to retrieve swords from blacksmiths before finding and
+	killing the nearest ore blob, which spawns a quake.
+	
+5)	Austin - Mouse event, art assets
+	William - Existing codebase, new entities
+
+Code is submitted by whickman1998

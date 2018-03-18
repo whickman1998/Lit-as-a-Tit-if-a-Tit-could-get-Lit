@@ -144,14 +144,12 @@ public final class VirtualWorld
       Optional<Entity> nearest = world.findNearest(pressed, Blacksmith.class);
       ((Blacksmith)nearest.get()).transform(world, scheduler, imageStore);
       
-      for(Point p : neighbors) {
-    	  if(!world.isOccupied(p)){
-    		  Soldier soldier = Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 0);
-    		  world.tryAddEntity(soldier);
-    		  soldier.scheduleActions(scheduler, world, imageStore);
-    		  soldier.executeActivity(world, imageStore, scheduler);
-    	  }
-      }
+	  Soldier soldier = Factory.createSoldier(pressed, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 0);
+	  world.tryAddEntity(soldier);
+	  soldier.scheduleActions(scheduler, world, imageStore);
+	  soldier.executeActivity(world, imageStore, scheduler);
+    	  
+      
       
       
       Random rand = new Random();
