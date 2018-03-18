@@ -71,5 +71,9 @@ final class WorldView
       drawBackground();
       drawEntities();
    }
+   
+   public Point mouseToPoint(int x, int y) {
+	   return new Point(x+viewport.getCol(),y+viewport.getRow());
+   }
 
 }
