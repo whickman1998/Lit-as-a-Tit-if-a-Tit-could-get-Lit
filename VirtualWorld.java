@@ -143,7 +143,7 @@ public final class VirtualWorld
       
       for(Point p : neighbors) {
     	  if(!world.isOccupied(p)){
-    		  //world.addEntity(new Soldier());
+    		  Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 0);
     	  }
       }
       
