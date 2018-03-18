@@ -146,7 +146,7 @@ public final class VirtualWorld
       
       for(Point p : neighbors) {
     	  if(!world.isOccupied(p)){
-    		  Soldier soldier = Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 0);
+    		  Soldier soldier = Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 400);
     		  world.tryAddEntity(soldier);
     		  soldier.scheduleActions(scheduler, world, imageStore);
     		  soldier.executeActivity(world, imageStore, scheduler);
