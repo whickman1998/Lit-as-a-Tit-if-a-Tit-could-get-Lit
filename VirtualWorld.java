@@ -142,16 +142,26 @@ public final class VirtualWorld
           }          
       }
       Optional<Entity> nearest = world.findNearest(pressed, Blacksmith.class);
-      ((Blacksmith)nearest.get()).transform(world, scheduler, imageStore);
+      if(nearest.isPresent()) ((Blacksmith)nearest.get()).transform(world, scheduler, imageStore);
       
-      for(Point p : neighbors) {
-    	  if(!world.isOccupied(p)){
-    		  Soldier soldier = Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 400);
-    		  world.tryAddEntity(soldier);
-    		  soldier.scheduleActions(scheduler, world, imageStore);
-    		  soldier.executeActivity(world, imageStore, scheduler);
-    	  }
-      }
+
+	  Soldier soldier = Factory.createSoldier(pressed, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 400);
+	  world.tryAddEntity(soldier);
+	  soldier.scheduleActions(scheduler, world, imageStore);
+	  for(Point p : neighbors) {
+		  if(Math.random()<.25) {
+			  Soldier soldier2 = Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 400);
+			  try {
+				  world.tryAddEntity(soldier2);
+			  } 
+			  catch (IllegalArgumentException e) {
+				  System.err.println("Attempted to place soldier, " + world.getOccupant(p).toString() + " found instead");				  
+			  }
+			  soldier2.scheduleActions(scheduler, world, imageStore);
+		  }
+		  
+	  }
+
       
       
       Random rand = new Random();
