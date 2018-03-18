@@ -8,19 +8,17 @@ public class Blacksmith extends Entity {
         super(position, images);
     }
     
-    /*public boolean transform(WorldModel world,
+    public boolean transform(WorldModel world,
             EventScheduler scheduler, ImageStore imageStore)
     {
-    		Miner miner = Factory.createMinerNotFull(super.getId(), super.getResourceLimit(),
-    				super.getPosition(), super.getActionPeriod(), super.getAnimationPeriod(),
-    				super.getImages());
+    		ProducingBlacksmith producingblacksmith = Factory.createProducingBlacksmith(super.getPosition(),(int)(11500+Math.random()*500), imageStore.getImageList(Factory.getVeinKey())); 
 
     		world.removeEntity(this);
     		scheduler.unscheduleAllEvents(this);
 
-    		world.addEntity(miner);
-    		miner.scheduleActions(scheduler, world, imageStore);
+    		world.addEntity(producingblacksmith);
+    		producingblacksmith.scheduleActions(scheduler, world, imageStore);
     		return false;
-    }*/
+    }
 
 }

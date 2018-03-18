@@ -4,8 +4,6 @@ import java.util.Optional;
 import processing.core.PImage;
 
 public class ProducingBlacksmith extends JustActivityActions {
-	
-	private static final String WEAPON_KEY = "weapon"; 
 
 	public ProducingBlacksmith(Point position, List<PImage> images, int actionPeriod) {
 		super(position, images, actionPeriod);
@@ -19,7 +17,7 @@ public class ProducingBlacksmith extends JustActivityActions {
 
         if (openPt.isPresent())
         {
-            Weapon weapon = Factory.createWeapon(openPt.get(), imageStore.getImageList(WEAPON_KEY));
+            Weapon weapon = Factory.createWeapon(openPt.get(), imageStore.getImageList(Factory.getWeaponKey()));
             world.addEntity(weapon); 
         }
 

@@ -9,6 +9,7 @@ public class Factory {
     private static final String ORE_KEY = "ore";
     private static final String SMITH_KEY = "blacksmith";
     private static final String VEIN_KEY = "vein";
+    private static final String WEAPON_KEY = "weapon"; 
 
     private static final int QUAKE_ACTION_PERIOD = 1100;
     private static final int QUAKE_ANIMATION_PERIOD = 100;
@@ -50,6 +51,14 @@ public class Factory {
 
     public static String getOreKey() {
         return ORE_KEY;
+    }
+    
+    public static String getWeaponKey() {
+    		return WEAPON_KEY; 
+    }
+    
+    public static String getVeinKey() {
+    		return VEIN_KEY; 
     }
 
     public static Action createAnimationAction(Entity entity, int repeatCount)
@@ -123,6 +132,11 @@ public class Factory {
                            List<PImage> images)
     {
         return new Vein(position, images, actionPeriod);
+    }
+    
+    public static ProducingBlacksmith createProducingBlacksmith(Point position, int actionPeriod,
+                           List<PImage> images) {
+    		return new ProducingBlacksmith(position, images, actionPeriod); 
     }
 
     public static boolean parseBackground(WorldModel world, String [] properties, ImageStore imageStore)
