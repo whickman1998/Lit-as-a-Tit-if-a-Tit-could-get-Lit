@@ -2,12 +2,12 @@ import processing.core.PImage;
 
 import java.util.List;
 
-public class Weapon extends JustActivityActions {
+public class Weapon extends Entity {
     
     public Weapon(Point position,
-                  List<PImage> images, int actionPeriod)
+                  List<PImage> images)
     {
-        super(position, images, actionPeriod);
+        super(position, images);
     }
     
     public void executeActivity(WorldModel world,

@@ -103,10 +103,9 @@ public class Factory {
         return new Ore_Blob(position, images, actionPeriod, animationPeriod);
     }
     
-    public static Weapon createWeapon(Point position, int actionPeriod,
-                                      List<PImage> images)
+    public static Weapon createWeapon(Point position, List<PImage> images)
     {
-        return new Weapon(position, images, actionPeriod);
+        return new Weapon(position, images);
     }
     
     public static Soldier createSoldier(Point position,
