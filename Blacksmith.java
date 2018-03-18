@@ -11,7 +11,7 @@ public class Blacksmith extends Entity {
     public boolean transform(WorldModel world,
             EventScheduler scheduler, ImageStore imageStore)
     {
-    		ProducingBlacksmith producingblacksmith = Factory.createProducingBlacksmith(super.getPosition(),(int)(11500+Math.random()*500), imageStore.getImageList(Factory.getVeinKey())); 
+    		ProducingBlacksmith producingblacksmith = Factory.createProducingBlacksmith(super.getPosition(),(int)(11500+Math.random()*500), imageStore.getImageList(Factory.getSmithKey())); 
 
     		world.removeEntity(this);
     		scheduler.unscheduleAllEvents(this);

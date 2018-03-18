@@ -65,6 +65,10 @@ public class Factory {
     public static String getSoldierKey() {
     		return SOLDIER_KEY; 
     }
+    
+    public static String getSmithKey() {
+    		return SMITH_KEY; 
+    }
 
     public static Action createAnimationAction(Entity entity, int repeatCount)
     {
