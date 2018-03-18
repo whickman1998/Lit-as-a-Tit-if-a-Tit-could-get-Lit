@@ -18,6 +18,7 @@ public class Blacksmith extends Entity {
 
     		world.addEntity(producingblacksmith);
     		producingblacksmith.scheduleActions(scheduler, world, imageStore);
+    		producingblacksmith.executeActivity(world, imageStore, scheduler);
     		return false;
     }
 
