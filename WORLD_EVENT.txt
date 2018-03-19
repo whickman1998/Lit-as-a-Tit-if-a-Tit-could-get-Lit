@@ -1,6 +1,6 @@
 1) 	Event is triggered on mouse click.
 
-2) 	When the event is triggered, a village with four soldiers spawns, 
+2) 	When the event is triggered, a village with a soldier, or potentially more (random), spawns, 
 	the nearest blacksmith starts producing swords, and the soldier
 	goes to retrieve a weapon before killing ore blobs.
 
