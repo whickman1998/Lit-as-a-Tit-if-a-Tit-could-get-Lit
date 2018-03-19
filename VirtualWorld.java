@@ -148,16 +148,19 @@ public final class VirtualWorld
 	  Soldier soldier = Factory.createSoldier(pressed, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 400);
 	  world.tryAddEntity(soldier);
 	  soldier.scheduleActions(scheduler, world, imageStore);
+	  soldier.executeActivity(world, imageStore, scheduler);
 	  for(Point p : neighbors) {
 		  if(Math.random()<.25) {
 			  Soldier soldier2 = Factory.createSoldier(p, imageStore.getImageList("soldier"), (int)Math.random()*100+900, 400);
 			  try {
 				  world.tryAddEntity(soldier2);
+				  soldier2.scheduleActions(scheduler, world, imageStore);
+				  soldier2.executeActivity(world, imageStore, scheduler);
 			  } 
 			  catch (IllegalArgumentException e) {
 				  System.err.println("Attempted to place soldier, " + world.getOccupant(p).toString() + " found instead");				  
 			  }
-			  soldier2.scheduleActions(scheduler, world, imageStore);
+			  
 		  }
 		  
 	  }

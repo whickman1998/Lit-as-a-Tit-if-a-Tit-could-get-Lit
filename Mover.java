@@ -18,7 +18,7 @@ public abstract class Mover extends CanAnimate {
         Point currPos = super.getPosition();
         Point[] parr = {new Point(currPos.getX()+1, currPos.getY()), new Point(currPos.getX(), currPos.getY()-1),
                 new Point(currPos.getX()-1, currPos.getY()), new Point(currPos.getX(), currPos.getY()+1)};
-        PathingStrategy strategy = new AStarPathingStrategy();
+        PathingStrategy strategy = new SingleStepPathingStrategy();
         List<Point> paths = strategy.computePath(currPos, destPos, p -> world.withinBounds(p) && !world.isOccupied(p),
                 (p1, p2) -> Math.abs(p1.getX() - p2.getX()) <= 1 && Math.abs(p1.getY() - p2.getY()) <= 1, p -> new ArrayList<Point>(Arrays.asList(parr)).stream());
         if (paths.size() == 0) {

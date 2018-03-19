@@ -22,6 +22,9 @@ public class Soldier extends Mover {
 					moveTo(world, unarmedTarget.get(), scheduler))
 			{
 				weapons = true; 
+				scheduler.scheduleEvent(this,
+						Factory.createActivityAction(this, world, imageStore),
+						super.getActionPeriod());
 			}
 			else
 			{
