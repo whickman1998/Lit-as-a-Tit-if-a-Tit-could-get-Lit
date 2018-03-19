@@ -1,6 +1,6 @@
 1) 	Event is triggered on mouse click.
 
-2) 	When the event is triggered, a village with a soldier spawns, 
+2) 	When the event is triggered, a village with four soldiers spawns, 
 	the nearest blacksmith starts producing swords, and the soldier
 	goes to retrieve a weapon before killing ore blobs.
 
@@ -10,7 +10,10 @@
 4)	The new entities (soldiers) go to retrieve swords from blacksmiths before finding and
 	killing the nearest ore blob, which spawns a quake.
 	
-5)	Austin - Mouse event, art assets
+5)  Upon killing ore blobs, soldiers have lost their weapon and must go retrieve another before 
+	killing any more ore blobs.  
+	
+6)	Austin - Mouse event, art assets
 	William - Existing codebase, new entities
 
 Code is submitted by whickman1998
